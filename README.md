@@ -50,7 +50,7 @@ There was also exposure to some types of files common in electronics physical de
 
 ## My contributions
 
-We can devide the work done in three timeframes:
+We can divide the work done in three timeframes:
 
 ### First phase (June - July)
 
