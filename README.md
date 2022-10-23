@@ -83,18 +83,39 @@ As a consequence, main points were:
 
 ### Third phase (Sept - Oct)
 
-During the third phase,
+During the last phase, I worked on improving the automatic generation of a placement and routing of cells that connect to multiple voltage sources.
 
-<!-- how the team is structured
+Basically, OpenFASoC's temperature sensor design has two voltage domains: VDD/GND and VIN/GND, so most circuit components (which we call instances) has one or the other as a supply. Some components (the so-called header cells), however, are responsible for generating VIN from VDD, so they must connect to both voltage domains. The singularity of this case caused the generated route to be less than ideal - it was too thin and didn't have adequate connection points, which could lead to a voltage drop in the physical implementation that deteriorates the sensor output - or to not get generated at all!
 
-Being a new repo,
-lack of documentation
-structure that can change frequently
-dependencies are very unstable
-the tool is not yet packaged
-there's no release schedule
-installation is all manual
+Therefore, main points were:
 
+- Study of DEF/LEF file structure
+- Procedure for custom placement of header cells
+- Update power delivery network layout ([pull request #111](https://github.com/idea-fasoc/OpenFASOC/pull/111))
+- Change header cells pins to higher metal layers and add nondefault rule to their route to VIN
+- Implement option for making multiple connections in the VIN route to the voltage domain ring ([pull request #113](https://github.com/idea-fasoc/OpenFASOC/pull/113))
+
+### Bonus: opening for DSE
+
+Since the proposal that got accepted to participate in GSoC was about Design Space Exploration, I figured it would be nice to create something for OpenFASoC that could futurely purpose as motivation for a DSE feature.
+
+The original idea was to leverage the Google Cloud Platform (GCP) computing power to leave a DSE job running in the cloud, since physical circuit simulations can take hours. Also, during this GSoC, the concept of creating example Jupyter notebooks to illustrate open silicon flows rose in the community - in OpenFASoC, for example, a notebook showcasing the temperature sensor generator was created by one of the team members.
+
+So, during the last week of the program, I chose to unite both concepts and write a Jupyter notebook to showcase DSE with the temperature sensor generator that could also be added as an example in the OpenFASoC documentation! The main point was, then:
+
+- Experiments with Hyperparameter Tuning in GCP
+- Write a Jupyter notebook, executable from Google Colab, running a DSE job in the cloud to optimize the temperature sensor generator power usage ([pull request #116](https://github.com/idea-fasoc/OpenFASOC/pull/116))
+
+## State of the project and future work
+
+For the temperature sensor generator, the idea is to further improve the design, for example by minimizing chip area. The proposal of a special router to the OpenROAD team to address situations like encountered with the VIN route was also discussed. For OpenFASoC, on the other hand, work remains to be done in other generators, or new circuit designs can be proposed.
+
+Eventually, the tool could also be packaged and converted to a command line tool: instead of `cd`ing into the repo and running `make`, it could be made to run in the terminal just by calling `openfasoc generate`, for example.
+
+## Challenges and learnings
+
+<!--
+i reached out for help from other members of the team (and of other repos) and it helped a lot
 
 conclusion:
 
