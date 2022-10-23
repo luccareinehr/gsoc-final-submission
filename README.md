@@ -60,10 +60,10 @@ Being a fairly new repository (it was created in March 2021), OpenFASoC still do
 - Dependencies are very unstable and update often
 - Project structure can change frequently
 - The tool is not yet packaged
-- There's no release schedule
-- Installation is done all manually
+- No release schedule
+- Installation is all done manually
 
-These were major challenges at the start of the program, and while some have been addressed during GSoC (such as added installation options and documentation), they remain as difficulties to new contributors that will definitely get sorted as the project grows.
+Those were major challenges at the start of the program, and while some have been addressed during GSoC (such as added installation options and documentation), they remain as difficulties to new contributors that will definitely get sorted as the project grows.
 
 Because of this, the first weeks were dedicated to familiarizing with the tools that the project used and tackling small issues. Main points were:
 
@@ -125,7 +125,7 @@ Eventually, the tool could also be packaged and converted to a command line tool
 
 ### Learnings:
 - Communication is key
-- Write issues to not forget them and begin discussions
+- Submit issues to not forget them, and to begin discussions
 - Don't reach for help without doing your own research
 - Reflect to be clear when explaining an issue, otherwise it will just confuse who you're talking with  
 - Know how to adapt your communication style with people from different backgrounds than mine
