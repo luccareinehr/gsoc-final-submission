@@ -1,5 +1,4 @@
-# Google Summer of Code '22
-Final submission for Google Summer of Code '22 at [@chipsalliance](github.com/chipsalliance/) 🤖
+Final submission for Google Summer of Code '22 in OpenFASoC at [@chipsalliance](github.com/chipsalliance/) 🤖
 
 ## Introduction
 For this last Summer and the month of October, I've been working on an open silicon project in the Google Summer of Code program as part of CHIPS Alliance, an umbrella organization hosted by The Linux Foundation. The project is **OpenFASoC**, conducted by researchers at the University of Michigan. With this text, I would like to share what I've contributed to, and how the experience has been in this journey.
