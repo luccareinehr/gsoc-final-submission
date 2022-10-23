@@ -5,7 +5,7 @@ Final submission for Google Summer of Code '22 at [@chipsalliance](github.com/ch
 For this last Summer and the month of October, I've been working on an open silicon project in the Google Summer of Code program as part of CHIPS Alliance, an umbrella organization hosted by The Linux Foundation. The project is **OpenFASoC**, conducted by researchers at the University of Michigan. With this text, I would like to share what I've contributed to, and how the experience has been in this journey.
 
 ## Summary
-OpenFASoC, an acronym for "Fully Open-Source Autonomous SoC Synthesis using Customizable Cell-Based Synthesizable Analog Circuits", is a somewhat recent piece of software that  aims to, given user specifications, automatically generate physical circuit blocks that can be later used in integrated circuits. The project scope is mainly focused on analog and mixed-signal designs. Currently, only six designs are at work, with more to come in the future.
+OpenFASoC, an acronym for "Fully Open-Source Autonomous SoC Synthesis using Customizable Cell-Based Synthesizable Analog Circuits", is a somewhat recent piece of software that  aims to, given user specifications, automatically generate physical circuit blocks that can be later used in SoCs. The project scope is mainly focused on analog and mixed-signal designs. Currently, only six designs are at work, with more to come in the future.
 
 I've worked mainly with one of the designs, a small subthreshold temperature sensor - or, in fact, the module that builds it: the temperature sensor generator (`temp-sense-gen`). My initial proposal was to create a Design Space Exploration (DSE) infrastructure to optimize this generator and automatically choose the best configuration for its internal generator parameters, such as the circuit's physical design generation variables, to keep them as default regardless of user specs. However, due to the complexity of the domain - I'm an EE student at CentraleSupélec, but still undergraduate - me and my mentor, prof. Mehdi Saligane, chose to change the goal to rather improve the current temperature sensor design generation, and at the end propose an opening for a future DSE project.
 
@@ -106,6 +106,8 @@ So, during the last week of the program, I chose to unite both concepts and writ
 - Experiments with Hyperparameter Tuning in GCP
 - Write a Jupyter notebook, executable from Google Colab, running a DSE job in the cloud to optimize the temperature sensor generator power usage ([pull request #116](https://github.com/idea-fasoc/OpenFASOC/pull/116))
 
+During all phases, I reached out for help from other members of the team (and of other open silicon projects), which helped a lot the development.
+
 ## State of the project and future work
 
 For the temperature sensor generator, the idea is to further improve the design, for example by minimizing chip area. The proposal of a special router to the OpenROAD team to address situations like encountered with the VIN route was also discussed. For OpenFASoC, on the other hand, work remains to be done in other generators, or new circuit designs can be proposed.
@@ -113,6 +115,38 @@ For the temperature sensor generator, the idea is to further improve the design,
 Eventually, the tool could also be packaged and converted to a command line tool: instead of `cd`ing into the repo and running `make`, it could be made to run in the terminal just by calling `openfasoc generate`, for example.
 
 ## Challenges and learnings
+
+### Challenges:
+- Growing projects are hard to get into
+- Dependency management is difficult
+- There's a lot of very specific cases to learn in microelectronics
+- Commercial physical design tools are expensive
+
+### Learnings:
+- Communication is key
+- Write issues to not forget them and begin discussions
+- Don't reach for help without doing your own research
+- Reflect to be clear when explaining an issue, otherwise it will just confuse who you're talking with  
+- Know how to adapt your communication style with people from different backgrounds than mine
+- Improved organization and work in remote
+- Tcl, Physical Design, some Docker and GCP, ... !
+
+## Conclusion
+
+Being a part of Google Summer of Code '22 was a major experience in my student life, and I can only thank everyone involved! It allowed me to get a bit more into a field I'm interested in, microelectronics, and to gain experience programming in a large project, but also to work with people from all over the world (the US, India, Morocco, Ethiopia, Rwanda, Japan, ...). In July, I also attended a conference on open silicon, the FSiC2022, which out of luck happened in Paris (the city I'm living in) and allowed me to meet my mentor in person!
+
+To finish, here are some numbers:
+
+- Pull requests merged: 7
+- Issues opened: 12
+- Issues closed: 9
+- Commits: 27
+- Lines of code added: +612655*
+- Lines of code removed: -358035* 
+- Optimized power consumption of the temperature sensor: 436 uW
+
+_*This enormous number of lines of code is mainly due to the temperature sensor OpenROAD fork update! :)_
+
 
 <!--
 i reached out for help from other members of the team (and of other repos) and it helped a lot
